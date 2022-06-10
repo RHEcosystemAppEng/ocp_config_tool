@@ -1,0 +1,10 @@
+## Red Hat Intel Openshift Lab config tool
+#################################################################################
+## vim: noai:ts=2:sw=2
+
+---
+- name: "Generating config report"
+  template:
+    src: "{{ report_template }}"
+    dest: "{{ build_dir }}/report.md"
+    

@@ -1,0 +1,17 @@
+# Cluster {{ cluster.name }} Configuration Report
+
+## Access Data
+* Cluster Name: {{ cluster.name }}
+* Authentication Provider: {{ cluster.auth.provider.keys() | to_yaml | replace('[', '') | replace(']','') }}
+
+
+## Users
+{% for user in cluster.auth.users %}
+- User Name: {{ user.name }}
+  Password: {{ user.pass }}
+{% endfor %}
+
+## Groups
+{% for group in cluster.auth.groups %}
+- Group Name: {{ group.name }}
+{% endfor %}

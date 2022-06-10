@@ -1,0 +1,30 @@
+## Red Hat Intel Openshift Lab config tool
+#################################################################################
+## vim: noai:ts=2:sw=2
+
+---
+cluster:
+    name: "example"
+    kubeconfig: "/tmp/ocp-install-cluster-ocp/auth/kubeconfig"
+    auth:
+      provider:
+        htpasswd:
+          name: "htpasswd"
+      users:
+        - name: admin1
+          pass: admin1
+          group: admins
+        - name: admin2
+          pass: admin2
+          group: admins
+        - name: dev1
+          pass: dev1
+          group: developers
+        - name: dev2
+          pass: dev2
+          group: developers
+      groups:
+        - name: admins
+          role: cluster-admin
+        - name: developers
+          role: basic-user

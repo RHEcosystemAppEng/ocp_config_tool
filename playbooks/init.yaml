@@ -1,0 +1,23 @@
+## Red Hat Intel Openshift Lab config tool
+#################################################################################
+## vim: noai:ts=2:sw=2
+
+---
+- name: "Init - Check cluster Access (Access API)"
+  shell: |
+    oc get nodes
+  environment:
+    KUBECONFIG: "{{ cluster.kubeconfig }}"
+  register: ocp_access
+  failed_when: ocp_access.rc != 0
+
+- name: "Init - Creating build directory"
+  file:
+    path: "{{ build_dir }}"
+    state: directory
+
+- name: "Init - Configuring Authentication provider"
+  import_tasks: ./playbooks/auth_provider.yaml
+
+- name: "Init - Configuring User Groups"
+  import_tasks: ./playbooks/groups.yaml

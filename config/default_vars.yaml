@@ -1,0 +1,17 @@
+## Red Hat Intel Openshift Lab config tool
+#################################################################################
+## vim: noai:ts=2:sw=2
+
+---
+# Directories
+build_dir: "./build"
+templates_dir: "./templates"
+
+# Auth variables
+## htpasswd
+auth_htpasswd_template: "{{ templates_dir }}/oauth_htpasswd.yaml.j2"
+auth_htpasswd_file: "{{ build_dir }}/htpasswd"
+
+
+# Report Variables
+report_template: "{{ templates_dir }}/report.md.j2"
