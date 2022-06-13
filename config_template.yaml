@@ -6,9 +6,12 @@
 cluster:
     name: "example"
     kubeconfig: "/tmp/ocp-install-cluster-ocp/auth/kubeconfig"
+
+    ## Openshift Image Registry Configuration
     registry:
       expose: true
-      hostname: "openshift-registry"
+      hostname: "openshift-registry" # Only type route prefix for *.apps domain. Cluster domain will be added automatically
+
     auth:
       provider:
         htpasswd:
