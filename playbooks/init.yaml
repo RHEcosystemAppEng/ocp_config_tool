@@ -21,3 +21,6 @@
 
 - name: "Init - Configuring User Groups"
   import_tasks: ./playbooks/groups.yaml
+
+- name: "Init - Configuring OCP Internal Registry"
+  import_tasks: ./playbooks/registry.yaml

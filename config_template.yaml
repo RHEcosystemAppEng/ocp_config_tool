@@ -6,6 +6,9 @@
 cluster:
     name: "example"
     kubeconfig: "/tmp/ocp-install-cluster-ocp/auth/kubeconfig"
+    registry:
+      expose: true
+      hostname: "openshift-registry"
     auth:
       provider:
         htpasswd:
