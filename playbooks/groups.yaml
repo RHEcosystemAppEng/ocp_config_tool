@@ -6,7 +6,7 @@
 - name: "Groups - Creating Groups"
   shell: |
     oc adm groups new {{ group.name }}
-    oc adm policy add-cluster-role-to-group {{ group.role }} {{ group.name }} --rolebinding-name {{ group.name }}-{{ group.role }}
+    oc adm policy add-cluster-role-to-group {{ group.clusterRole }} {{ group.name }} --rolebinding-name {{ group.name }}-{{ group.clusterRole }}
   environment:
     KUBECONFIG: "{{ cluster.kubeconfig }}"
   loop_control:
