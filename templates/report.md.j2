@@ -1,17 +1,24 @@
 # Cluster {{ cluster.name }} Configuration Report
 
 ## Access Data
-* Cluster Name: {{ cluster.name }}
-* Authentication Provider: {{ cluster.auth.provider.keys() | to_yaml | replace('[', '') | replace(']','') }}
+* **Cluster:** {{ cluster.name }}
+* **Console:** *https://console-openshift-console.{{ ocp_cluster_domain.stdout }}*
+* **Authentication Provider:** {{ cluster.auth.provider.keys() | to_yaml | replace('[', '') | replace(']','') }}
 
 
 ## Users
 {% for user in cluster.auth.users %}
-- User Name: {{ user.name }}
-  Password: {{ user.pass }}
+- **Username:** {{ user.name }}
+  **Password:** {{ user.pass }}
 {% endfor %}
+
 
 ## Groups
 {% for group in cluster.auth.groups %}
-- Group Name: {{ group.name }}
+- **Group Name:** {{ group.name }}
+  **Group Role:** {{ group.clusterRole }}
 {% endfor %}
+
+
+## Image Registry
+- Hostname: *https://{{ cluster.registry.hostname }}.{{ ocp_cluster_domain.stdout }}*

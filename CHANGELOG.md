@@ -2,6 +2,7 @@
 
 ## [Unreleased] - 2022-06-13
 ### Added
+* Added Openshift image-registry configuration
 ### Changed
 * Replaced `cluster.auth.groups.role` by `cluster.auth.groups.clusterRole`.
 ### Fixed
